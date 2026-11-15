@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | SportsHub Sports Complex</title>
+  <meta name="description" content="Log in or register to manage sports complex bookings.">
+  <meta name="author" content="SportsHub Student Project">
+  <!-- Bootstrap 5.3.3 and Bootstrap Icons 1.11.3 are pinned to exact versions -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body class="auth-page" data-page="login">
+  <button class="btn btn-outline-secondary theme-fab" data-theme-toggle aria-label="Toggle dark mode"><i class="bi"></i></button>
+
+  <!-- CHANGE 1: diagonal split-screen.
+       Desktop: the hero is clipped to the left half with a diagonal edge, the form sits on the right half.
+       Mobile/tablet (< 992px): the diagonal is removed and the two parts stack vertically. -->
+  <div class="auth-split">
+    <div class="auth-accent" aria-hidden="true"></div>   <!-- thin green line that trims the diagonal edge -->
+
+    <!-- Left half: decorative / brand section -->
+    <section class="auth-hero">
+      <div class="auth-hero-content">
+        <div class="sport-row mb-4">
+          <img src="images/bad1.png" alt="Badminton" width="112" height="112">
+          <img src="images/fut1.png" alt="Futsal" width="112" height="112">
+          <img src="images/pick1.jpg" alt="Pickle ball" width="112" height="112">
+        </div>
+        <h1 class="display-5 fw-bold">SportsHub</h1>
+        <p class="lead mb-0 mx-auto" style="max-width:26rem">Reserve badminton, futsal and pickle ball courts in a few taps.</p>
+      </div>
+    </section>
+
+    <!-- Right half: login / register -->
+    <main class="auth-main">
+      <div class="auth-panel">
+        <h2 class="h3 fw-bold mb-1">Book your next game</h2>
+        <p class="text-body-secondary mb-4">Log in or create an account to reserve a court.</p>
+        <div class="card shadow-sm"><div class="card-body p-4">
+          <ul class="nav nav-pills nav-fill mb-4" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" id="login-tab" data-bs-toggle="pill" data-bs-target="#loginPane" type="button" role="tab">Log in</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="register-tab" data-bs-toggle="pill" data-bs-target="#registerPane" type="button" role="tab">Register</button></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="loginPane" role="tabpanel">
+              <div id="loginMsg" class="d-none" role="alert"></div>
+              <form id="loginForm">
+                <div class="mb-3"><label class="form-label" for="loginUser">Username</label>
+                  <input class="form-control" id="loginUser" autocomplete="username" required></div>
+                <div class="mb-3"><label class="form-label" for="loginPass">Password</label>
+                  <input type="password" class="form-control" id="loginPass" autocomplete="current-password" required></div>
+                <button class="btn btn-primary w-100" type="submit">Log in</button>
+              </form>
+              <p class="small text-body-secondary mt-3 mb-0">Demo accounts: <strong>admin / admin123</strong> or <strong>user / user123</strong></p>
+            </div>
+            <div class="tab-pane fade" id="registerPane" role="tabpanel">
+              <div id="registerMsg" class="d-none" role="alert"></div>
+              <form id="registerForm">
+                <div class="mb-3"><label class="form-label" for="regName">Full name</label><input class="form-control" id="regName" required></div>
+                <div class="mb-3"><label class="form-label" for="regUser">Username</label><input class="form-control" id="regUser" required></div>
+                <div class="mb-3"><label class="form-label" for="regPass">Password</label><input type="password" class="form-control" id="regPass" required></div>
+                <div class="mb-3"><label class="form-label" for="regPass2">Confirm password</label><input type="password" class="form-control" id="regPass2" required></div>
+                <button class="btn btn-primary w-100" type="submit">Create account</button>
+              </form>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
