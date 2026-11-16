@@ -8,6 +8,12 @@ SportsHub is a responsive, front-end-only sports complex booking application for
 
 The project is built with HTML, CSS and vanilla JavaScript. It does not require PHP, MySQL, Node.js or a backend server. Demo data and changes made in the browser are stored in `localStorage` and `sessionStorage`.
 
+## Github Pages Live Website and Github Repository link
+
+- **Live site:** [https://najmie57.github.io/idvProjSC/](https://najmie57.github.io/idvProjSC/)
+- **Repository:** [github.com/najmie57/idvProjSC](https://github.com/najmie57/idvProjSC)
+
+
 ## Features
 
 - Login and registration with client-side validation
@@ -118,7 +124,3 @@ The project can be hosted as a static GitHub Pages site:
 5. Open the published URL shown by GitHub Pages.
 
 The application still remains front-end-only after deployment. Each visitor has their own browser-local accounts and bookings; there is no shared database.
-
-## Repository
-
-[github.com/najmie57/idvProjSC](https://github.com/najmie57/idvProjSC)
