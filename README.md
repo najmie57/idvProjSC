@@ -1,71 +1,124 @@
-# SportsHub - Sports Complex Booking System
+# SportsHub Sports Complex Booking System
 
-A responsive, front-end-only web application for booking **Badminton**, **Futsal** and **Pickle Ball** courts.
-Built as a static site (HTML, CSS, JavaScript), so it runs on GitHub Pages with no backend or database.
+SportsHub is a responsive, front-end-only sports complex booking application for:
 
-- **Live site:** _add your GitHub Pages link here_
-- **Repository:** _add your GitHub repository link here_
+- Badminton
+- Futsal
+- Pickle Ball
+
+The project is built with HTML, CSS and vanilla JavaScript. It does not require PHP, MySQL, Node.js or a backend server. Demo data and changes made in the browser are stored in `localStorage` and `sessionStorage`.
 
 ## Features
 
-| Requirement | What was built |
-|---|---|
-| Authentication | Diagonal split-screen Login and Register page (stacks vertically on mobile) with hardcoded demo accounts, clear error messages, and a login guard on every page |
-| Navigation | Responsive Bootstrap navbar. On desktop it starts collapsed with only the trophy button; clicking it slides the page links out to the right (keyboard accessible). On mobile it uses the normal hamburger menu. Logout and the theme toggle stay visible |
-| Dashboard | 4 summary cards, 2 charts, and an upcoming-bookings table |
-| Data views (3) | Bookings table (search + sport/status filters), Facilities card grid (sport filter), Members table (search) |
-| Data visualisation (2) | Doughnut chart of bookings per sport and a stacked bar chart of daily bookings for the last 7 days, both built from the sample data |
-| Extra page | New Booking form with validation, a 1 to 4 hour length option, live price (peak rate after 18:00 is added per hour) and double-booking prevention for the whole time range |
-| Dark mode | Light theme by default, toggle button in the navbar and on the login page (choice is remembered) |
+- Login and registration with client-side validation
+- Protected application pages with logout support
+- Responsive navigation with desktop menu toggle and mobile hamburger menu
+- Light and dark themes, remembered in the browser
+- Dashboard summary cards and Chart.js visualisations
+- Bookings table with search, sport and status filters
+- Facilities grid with sport filters and court availability
+- Members table with search
+- New booking form with:
+  - 1 to 4 hour booking durations
+  - Availability checking for the complete booking range
+  - Double-booking prevention
+  - Peak pricing from 18:00
+  - Closing time of 22:00
+- Responsive layout for desktop, tablet and mobile screens
 
-Content organisation: every page has a unique `<title>`, meta description, one `<h1>`, semantic sections (`header`, `main`, `section`) and consistent headings.
+## Demo accounts
 
-## How to test the login
+Use either account on the login page:
 
 | Username | Password | Role |
 |---|---|---|
 | `admin` | `admin123` | Admin |
 | `user` | `user123` | Member |
 
-- Wrong credentials show an error message.
-- You can also create an account on the **Register** tab (saved in your browser's localStorage only).
-- Newly registered accounts also appear on the Members page (Basic plan, joined today).
-- Bookings made on the New Booking form are saved in localStorage and appear on the Bookings page.
-- The desktop navbar starts collapsed after each login, then stays expanded or collapsed as you left it until you log out.
+You can also use the **Register** tab to create an account. New accounts and bookings are saved only in the current browser's storage and are not shared with other users or browsers.
 
-## Frameworks and libraries
+## Run locally with Laragon
 
-- Bootstrap **5.3.3** (CDN, pinned version)
-- Bootstrap Icons **1.11.3** (CDN)
-- Chart.js **4.4.1** (CDN)
-- Google Font: Plus Jakarta Sans
+This repository is already laid out as a Laragon web-root project:
+
+```text
+C:\laragon\www\idvProjSC
+```
+
+1. Make sure the project folder is located at `C:\laragon\www\idvProjSC`.
+2. Start **Apache** in Laragon. No MySQL service is needed.
+3. Open the following URL in a browser:
+
+   [http://localhost/idvProjSC/](http://localhost/idvProjSC/)
+
+4. The login page is `index.html`. After logging in, use the navigation links to open the dashboard, bookings, facilities, members and new booking pages.
+
+If you place the project in a different folder directly under `C:\laragon\www`, replace `idvProjSC` in the URL with that folder's name. Do not add a second `sports-complex` directory; the HTML files are at the repository root.
+
+## Run with VS Code Live Server
+
+Because this is a static site, it can also be opened with the **Live Server** extension:
+
+1. Open `C:\laragon\www\idvProjSC` in VS Code.
+2. Right-click [index.html](index.html) and choose **Open with Live Server**.
+3. Use the local URL shown by VS Code, usually similar to `http://127.0.0.1:5500/index.html`.
+
+Opening [index.html](index.html) directly with `file://` may work for some features, but a local web server is recommended for consistent browser behaviour.
 
 ## Project structure
 
-```
-sports-complex/
-├── index.html          Login / Register
-├── dashboard.html      Summary cards + charts
-├── bookings.html       Bookings table
-├── facilities.html     Courts grid
-├── members.html        Members table
-├── booking-form.html   New booking form
-├── css/style.css       Theme and custom styles
+```text
+idvProjSC/
+├── index.html              Login and registration
+├── dashboard.html          Summary cards, charts and upcoming bookings
+├── bookings.html           Bookings table and filters
+├── facilities.html         Sports complex court grid
+├── members.html            Members table and search
+├── booking-form.html       New booking form
+├── css/
+│   └── style.css           Theme and responsive styles
+├── images/
+│   ├── bad1.png            Badminton image
+│   ├── fut1.png            Futsal image
+│   └── pick1.jpg           Pickle Ball image
 └── js/
-    ├── data.js         Sample datasets
-    ├── auth.js         Simulated login/register
-    ├── main.js         Navbar, theme toggle, login guard
-    ├── pages.js        Table, grid and form logic
-    └── charts.js       Chart.js charts
+    ├── data.js             Facilities, members and booking data
+    ├── auth.js             Login and registration logic
+    ├── main.js             Theme, navigation and login guard
+    ├── pages.js            Page rendering and booking form logic
+    └── charts.js            Chart.js dashboard charts
 ```
 
-## Run locally (Laragon)
+## External libraries
 
-Copy the folder to `C:\laragon\www\idv web SC\sports-complex` and open `http://localhost/idv%20web%20SC/sports-complex/`.
-No PHP or MySQL is used. Opening with VS Code Live Server works too.
+The pages load these pinned libraries from jsDelivr, so an internet connection is needed when first loading the site:
+
+- Bootstrap 5.3.3
+- Bootstrap Icons 1.11.3
+- Chart.js 4.4.1
+- Google Font: Plus Jakarta Sans
+
+## Reset browser data
+
+To clear accounts, bookings and theme preferences created during testing, clear site data for the local URL in the browser's developer tools. The application uses these storage keys:
+
+- `sc_users` - registered accounts
+- `sc_new_bookings` - bookings created through the form
+- `sc_theme` - saved theme
+- `sc_user` and `sc_nav_open` - current login session and navigation state
 
 ## Deploy to GitHub Pages
 
-1. Push the project to a GitHub repository (files at the repository root).
-2. Go to **Settings > Pages**, set the source to the `main` branch and the `/ (root)` folder, then save.
-3. Open the link GitHub shows after a minute or two.
+The project can be hosted as a static GitHub Pages site:
+
+1. Push the repository contents, including the HTML files, `css`, `images` and `js` folders, to the repository root.
+2. In GitHub, open **Settings > Pages**.
+3. Under **Build and deployment**, select **Deploy from a branch**.
+4. Select the `main` branch and the `/ (root)` folder, then save.
+5. Open the published URL shown by GitHub Pages.
+
+The application still remains front-end-only after deployment. Each visitor has their own browser-local accounts and bookings; there is no shared database.
+
+## Repository
+
+[github.com/najmie57/idvProjSC](https://github.com/najmie57/idvProjSC)
