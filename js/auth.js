@@ -15,12 +15,23 @@ function showMsg(el, text, type) {
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('loginForm'), registerForm = document.getElementById('registerForm');
   const loginMsg = document.getElementById('loginMsg'), regMsg = document.getElementById('registerMsg');
+  const loginUser = document.getElementById('loginUser'), loginPass = document.getElementById('loginPass');
+  const showTab = tab => new bootstrap.Tab(document.getElementById(tab === 'register' ? 'register-tab' : 'login-tab')).show();
+  const applyHash = () => showTab(location.hash === '#register' ? 'register' : 'login');
+
+  document.querySelectorAll('[data-demo-user]').forEach(link => link.addEventListener('click', () => {
+    const isAdmin = link.dataset.demoUser === 'admin';
+    loginUser.value = isAdmin ? 'admin' : 'user';
+    loginPass.value = isAdmin ? 'admin123' : 'user123';
+    loginUser.focus();
+  }));
+  window.addEventListener('hashchange', applyHash);
 
   // ---- Login ----
   loginForm.addEventListener('submit', e => {
     e.preventDefault();
-    const u = document.getElementById('loginUser').value.trim().toLowerCase();
-    const p = document.getElementById('loginPass').value;
+    const u = loginUser.value.trim().toLowerCase();
+    const p = loginPass.value;
     const user = getUsers().find(x => x.username === u && x.password === p);
     if (!user) { showMsg(loginMsg, 'Invalid username or password. Check your details and try again.', 'danger'); return; }
     sessionStorage.removeItem('sc_nav_open');   // navbar starts collapsed once per login session
@@ -41,8 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
     saved.push({username: u, password: p, name, role: 'Member', joined: isoDate(0)});   // 'joined' feeds the Members page
     localStorage.setItem('sc_users', JSON.stringify(saved));
     registerForm.reset();
-    document.getElementById('loginUser').value = u;
+    loginUser.value = u;
+    history.replaceState(null, '', '#login');
     showMsg(loginMsg, 'Account created. Log in with your new username.', 'success');
-    new bootstrap.Tab(document.getElementById('login-tab')).show();
+    showTab('login');
   });
+
+  applyHash();
 });

@@ -135,3 +135,18 @@ h1,h2,h3,h4,.fw-bold{letter-spacing:-.01em}
 /* --- Tables: keep them scrollable on small screens --- */
 .table>:not(caption)>*>*{padding:.8rem .9rem}
 .table thead th{font-weight:600;white-space:nowrap}
+
+/* --- Shared footer --- */
+.site-footer{margin-top:auto;padding:2.5rem 0 1rem;background:#0f2a43;color:#b8c8d6}
+.site-footer a{display:block;width:max-content;color:#dbeafe;text-decoration:none;margin:.35rem 0}
+.site-footer a:hover,.site-footer a:focus-visible{color:#86efac}
+.site-footer p{font-size:.875rem}
+.footer-brand{font-size:1.35rem;font-weight:800;letter-spacing:-.03em}
+.footer-bottom{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.16);font-size:.8rem}
+.auth-page{display:flex;flex-direction:column;min-height:100vh}
+.auth-page .auth-split{flex:1;min-height:0}
+.auth-page .auth-main{min-height:0}
+@media (max-width:991.98px){
+  .auth-page .auth-split{flex:none}
+  .site-footer{padding-top:2rem}
+}

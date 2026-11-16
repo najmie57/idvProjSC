@@ -6,6 +6,11 @@
   <title>Dashboard | SportsHub Sports Complex</title>
   <meta name="description" content="Daily summary of bookings, revenue and court availability.">
   <meta name="author" content="SportsHub Student Project">
+  <link rel="icon" href="images/bad1.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dashboard | SportsHub Sports Complex">
+  <meta property="og:description" content="View SportsHub booking activity, revenue and court availability.">
+  <meta property="og:image" content="images/bad1.png">
   <!-- Bootstrap 5.3.3 and Bootstrap Icons 1.11.3 are pinned to exact versions -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -33,7 +38,7 @@
       <h2 class="h6 fw-bold mb-3">Upcoming bookings</h2>
       <div class="table-responsive"><table class="table align-middle mb-0">
         <thead><tr><th>Date</th><th>Time</th><th>Court</th><th>Customer</th><th>Status</th></tr></thead>
-        <tbody id="upcomingRows"></tbody></table></div>
+        <tbody id="upcomingRows" aria-live="polite"></tbody></table></div>
     </div></section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

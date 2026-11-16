@@ -72,8 +72,17 @@ document.addEventListener('DOMContentLoaded', () => {
     host.addEventListener('keydown', e => {              // Esc closes the menu and returns focus to the trophy
       if (e.key === 'Escape' && trophy.getAttribute('aria-expanded') === 'true') { setOpen(false); trophy.focus(); }
     });
-    document.body.insertAdjacentHTML('beforeend',
-      '<footer class="text-center small text-body-secondary py-4">&copy; 2026 SportsHub Sports Complex &middot; All rights reserved</footer>');
+    document.body.insertAdjacentHTML('beforeend', `
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-md-5"><a class="footer-brand" href="dashboard.html">SportsHub</a><p class="mb-0">Simple court booking for your next game.</p></div>
+            <div class="col-6 col-md-3"><h2 class="h6 text-white">Quick links</h2>${NAV_ITEMS.map(n => `<a href="${n[3]}">${n[1]}</a>`).join('')}</div>
+            <div class="col-6 col-md-4"><h2 class="h6 text-white">Contact</h2><p class="mb-1">hello@sportshub.example</p><p class="mb-0">+60 3-1234 5678</p></div>
+          </div>
+          <div class="footer-bottom">&copy; 2026 SportsHub Sports Complex &middot; All rights reserved</div>
+        </div>
+      </footer>`);
     document.getElementById('logoutBtn').addEventListener('click', () => {
       sessionStorage.removeItem('sc_user'); sessionStorage.removeItem('sc_nav_open'); location.href = 'index.html';
     });

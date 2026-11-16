@@ -27,7 +27,8 @@ function initDashboard() {
     </div></div></div>`).join('');
   const next = live.filter(b => b.date >= today).sort((a, b) => (a.date + a.hour).localeCompare(b.date + b.hour)).slice(0, 5);
   document.getElementById('upcomingRows').innerHTML = next.map(b => `<tr><td>${formatDate(b.date)}</td><td>${b.time}</td>
-    <td>${esc(b.facilityName)}</td><td>${esc(b.customer)}</td><td>${badge(b.status)}</td></tr>`).join('');
+    <td>${esc(b.facilityName)}</td><td>${esc(b.customer)}</td><td>${badge(b.status)}</td></tr>`).join('') ||
+    '<tr><td colspan="5" class="text-center text-body-secondary py-4">No upcoming bookings yet. Create a booking to see it here.</td></tr>';
 }
 
 // ---------- Bookings table with search + filters ----------
