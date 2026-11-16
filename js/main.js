@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
       <footer class="site-footer">
         <div class="container">
           <div class="row g-4">
-            <div class="col-md-5"><a class="footer-brand" href="dashboard.html">SportsHub</a><p class="mb-0">Simple court booking for your next game.</p></div>
+            <div class="col-md-5"><a class="footer-brand" href="dashboard.html">SportsHub</a><p class="mb-0">Your passion for sports, our passion for service.</p></div>
             <div class="col-6 col-md-3"><h2 class="h6 text-white">Quick links</h2>${NAV_ITEMS.map(n => `<a href="${n[3]}">${n[1]}</a>`).join('')}</div>
-            <div class="col-6 col-md-4"><h2 class="h6 text-white">Contact</h2><p class="mb-1">hello@sportshub.example</p><p class="mb-0">+60 3-1234 5678</p></div>
+            <div class="col-6 col-md-4"><h2 class="h6 text-white">Reach us</h2><p class="mb-1">sportshub@gmail.com</p><p class="mb-0">+60 3-1234 5678</p></div>
           </div>
           <div class="footer-bottom">&copy; 2026 SportsHub Sports Complex &middot; All rights reserved</div>
         </div>
